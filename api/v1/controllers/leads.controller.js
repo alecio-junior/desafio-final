@@ -1,16 +1,17 @@
 import leadsService from "../services/leads.service.js"
 
+
 async function createLeads(req, res, next){
     try{
         let leads = req.body;
-        leads.id_campanha = parseInt(leads.id_campanha)
-
-        if(!leads.nome || !leads.email || !leads.telefone){
-            throw new Error("nome, telefone e email são obrigatorios.")
+    
+        if(!leads.nome || !leads.telefone || !leads.email || !leads.campanha_id ){
+            throw new Error("nome, telefone, email e id da campanha são obrigatorios.")
         }
         
+        
         res.send(await leadsService.createLeads(leads));
-        logger.info(`POST /leads - ${JSON.stringify(leads)}`);
+        logger.info(`POST /api/v1/leads - ${JSON.stringify(leads)}`);
     }catch(err){
         next(err);
     }
@@ -18,11 +19,9 @@ async function createLeads(req, res, next){
 
 async function buscarLeads(req, res, next){
     try{
-        let leads = req.query.nome
-        leads.id_campanha = parseInt(leads.id_campanha)
-
-        res.send(await leadsService.updateLeads(leads))
-        logger.info(`GET/leads - ${JSON.stringify(leads)}`)
+        
+        res.send(await leadsService.buscarLeads())
+        logger.info("GET /api/v1/leads")
     }catch(err){
         next(err);
     }
@@ -30,11 +29,8 @@ async function buscarLeads(req, res, next){
 
 async function buscarLead(req, res, next){
     try{
-        let leads = req.query.nome
-        leads.id_campanha = parseInt(leads.id_campanha)
-
-        res.send(await leadsService.updateLeads(leads))
-        logger.info(`GET/leads - ${JSON.stringify(leads)}`)
+        res.send(await leadsService.buscarLead(req.params.id))
+        logger.info("GET /api/v1/leads")
     }catch(err){
         next(err);
     }
@@ -42,11 +38,9 @@ async function buscarLead(req, res, next){
 
 async function deleteLead(req, res, next){
     try{
-        let leads = req.query.nome
-        leads.id_campanha = parseInt(leads.id_campanha)
-
-        res.send(await leadsService.updateLeads(leads))
-        logger.info(`GET/leads - ${JSON.stringify(leads)}`)
+        await leadsService.deleteLead(req.params.id)
+        res.end();
+        logger.info("DELETE /api/v1/leads")
     }catch(err){
         next(err);
     }
@@ -54,11 +48,14 @@ async function deleteLead(req, res, next){
 
 async function updateLeads(req, res, next){
     try{
-        let leads = req.query.nome
-        leads.id_campanha = parseInt(leads.id_campanha)
+        let leads = req.body
+        
+        if(!leads.lead_id || !leads.nome || !leads.email || !leads.telefone){
+            throw new Error("id do proprietario, nome, telefone, email são obrigatório.")
+          }
 
         res.send(await leadsService.updateLeads(leads))
-        logger.info(`GET/leads - ${JSON.stringify(leads)}`)
+        logger.info(`GET /api/v1/leads - ${JSON.stringify(leads)}`)
     }catch(err){
         next(err);
     }
