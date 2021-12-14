@@ -8,7 +8,7 @@ async function connect(){
         return global.connection.connect();
     }
    const pool = new pg.Pool({
-       connectionString: process.env.BD_DESAFIO
+       connectionString: process.env.BD_MRCHEF
    });
    global.connection = pool;
    return pool.connect();

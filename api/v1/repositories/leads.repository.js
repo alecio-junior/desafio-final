@@ -33,8 +33,8 @@ async function admin() {
 async function insertLead(leads) {
     const conn = await connect();
     try {
-        const sql = "INSERT INTO leads (nome, telefone, email, campanha_id) VALUES ($1, $2, $3, $4) RETURNING *"
-        const values = [leads.nome, leads.telefone, leads.email, leads.campanha_id];
+        const sql = "INSERT INTO leads (nome, email, campanha_id) VALUES ($1, $2, $3) RETURNING *"
+        const values = [leads.nome, leads.email, leads.campanha_id];
         const res = await conn.query(sql, values);
         return res.rows[0];
     } catch (err) {
@@ -44,8 +44,8 @@ async function insertLead(leads) {
         transporter.sendMail({
             from: process.env.USEREMAIL,
             to: leads.email,
-            subject: "inscrição na landipage lançamento app",
-            text: "Obrigado por si escreve para serem os primeiros a testarem o nosso app, embreve teremos novidades! "
+            subject: "inscrição na landipage com sucesso",
+            text: "Obrigado por si escreve voce recebará em primeira mão a data de lançamento, embreve teremos novidades! "
         }).then(info => {
             console.log(info)
         }).catch(error => {
@@ -92,8 +92,8 @@ async function deleteLead(id) {
 async function updateLeads(leads) {
     const conn = await connect();
     try {
-        const sql = "UPDATE leads SET nome = $1, telefone = $2, email = $3, campanha_id = $4 WHERE lead_id = $5  RETURNING *";
-        const values = [leads.nome, leads.telefone, leads.email, leads.campanha_id, leads.lead_id];
+        const sql = "UPDATE leads SET nome = $1, email = $2, campanha_id = $3 WHERE lead_id = $4  RETURNING *";
+        const values = [leads.nome, leads.email, leads.campanha_id, leads.lead_id];
         const res = await conn.query(sql, values);
         return res.rows[0];
     } catch (err) {

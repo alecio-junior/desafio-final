@@ -22,10 +22,10 @@ global.logger = winston.createLogger({
 
 const app = express();
 app.use(express.json());
-app.use("/api/v1/leads", leadsRouter);
+app.use("/v1/leads", leadsRouter);
 app.use((err, req, res, next) => {
     logger.error(`${req.method} ${req.baseUrl} - ${err.messege}`);
     res.status(400).send({error: err.message});
 })
 
-app.listen(3000, () => console.log("API started"));
+app.listen(5500, () => console.log("API started"));
