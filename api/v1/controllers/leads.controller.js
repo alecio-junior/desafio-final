@@ -4,13 +4,13 @@ import leadsService from "../services/leads.service.js"
 async function createLeads(req, res, next){
     try{
         let leads = req.body;
+        leads.campanha_id = parseInt(leads.campanha_id);
 
-    
-       /* if(!leads.nome || !leads.email){
+        if(!leads.nome || !leads.email || !leads.campanha_id ){
             throw new Error("nome, email e id da campanha são obrigatorios.")
-        }*/
+        }
         
-        res.send(leads);
+        res.send(await leadsService.createLeads(leads))
     
         logger.info(`POST /v1/leads - ${JSON.stringify(leads)}`);
     }catch(err){

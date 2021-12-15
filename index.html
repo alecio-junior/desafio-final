@@ -82,15 +82,15 @@
         <h2 id="subtitle-3">Cadastre-se</h2>
         <p id="paragraph-3">Receba no seu e-mail nossas atualizações, acompanhe as novidades e receba em primeira mão a data de lançamento</p>
         
-        <form class="formmulario" action="http://localhost:5500/v1/leads" method="POST">
-          <input type="text" name="nome" id="cad-news" placeholder="insira seu nome">
-          <input type="text" name="email" id="cad-news" placeholder="insira seu email">
+        <form class="formmulario" action="http://localhost:5501/v1/leads" method="post">
+          <input type="text" name="nome"  id="cad-news" placeholder="insira seu nome" />
+          <input type="text" name="email" id="cad-news" placeholder="insira seu email" />
           <fieldset class ="fieldset">
               
             <legend>interesse</legend>
 
             <label>ser os primeiros a testar o app</label>
-            <input type="radio" name="campanha_id" value='1' id="campanhas"/>
+            <input type="radio" name="campanha_id" value="1" id="campanhas" />
         
         </fieldset>
           <button type="submit" id="btn-cadastrar-2">Cadastrar</button>

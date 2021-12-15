@@ -28,4 +28,4 @@ app.use((err, req, res, next) => {
     res.status(400).send({error: err.message});
 })
 
-app.listen(5500, () => console.log("API started"));
+app.listen(5501, () => console.log("API started"));
