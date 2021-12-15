@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <title>Mr. Chef</title>
+</head>
+<body>
+  <header>
+      <nav class="navbar">
+        <img id="logo-img" src="./Assets/logos/Logo-Mr-Chef-branco.png" alt="logo"></img>
+        <ul class="nav-list">
+          <li><a href="#subtitle-1">Por que Mr. Chef?</a></li>
+          <li><a href="#subtitle-2">Faça uma simulação</a></li>
+        </ul>
+        <button id="btn-cadastro">Cadastre-se agora</button>
+      </nav>
+  </header>
+  <main>
+      <div class="banner-1">
+        <div class="text">
+          <h1>Ganhe dinheiro com os seus dotes culinários</h1>
+          <p id="paragraph-1">Torne-se um fornecedor ou fornecedora Mr. Chef na sua região, contribua para o nosso cardápio com os seus melhores pratos e faça até R$ 2.500 por mês com a sua paixão por cozinhar pratos que todos amam!</p>
+          <button id="btn-quero-cadastrar">Quero me cadastrar</button>
+          <button id="btn-saber-mais">Saber mais</button>
+        </div>
+        <div class="image">
+          <img id="banner-img" src="./Assets/imagens/mao-segurando-telefone-com-app-mr-chef.png" alt="mão segurando um telefone móvel">
+        </div>
+      </div>
+      <h2 id="subtitle-1">Por que se cadastrar no Mr. Chef?</h2>
+      <div class="banner-2">
+        <div class="image">
+          <img id="banner-img-2" src="./Assets/imagens/telefones-com-a-tela-inicial-do-app.png" alt="dois telefones móveis">
+        </div>
+        <div class="advantages-list">
+          <div class="advantages">
+            <img src="./Assets/icones/money.svg" alt="ícone de dinheiro" width="50px">
+            <h3>Ganhe dinheiro com a sua paixão</h3>
+            <p>Ofereça os seus melhores pratos para o nosso cardápio do Mr. Chef e seja remunerado por isso.</p>
+          </div>
+          <div class="advantages">
+            <img src="./Assets/icones/home.svg" alt="ícone de casa" width="50px">
+            <h3>Trabalhe a partir de casa e defina seus dias e horários</h3>
+            <p>Com o Mr. Chef você escolhe quando os seus pratos vão estar disponíveis na plataforma.</p>
+          </div>
+          <div class="advantages">
+            <img src="./Assets/icones/tax.svg" alt="ícone de calculadora" width="50px">
+            <h3>As menores taxas de todos os aplicativos de food service</h3>
+            <p>Não veja seus ganhos serem perdidos pagando taxas e mais taxas. No Mr. Chef você paga as menores taxas de todos os apps existentes no mercado. Seu prato, seu ganho!</p>
+          </div>
+          <div>
+            <button id=btn-advantages>Quero ser Mr. Chef!</button>
+          </div>
+        </div>
+      </div>
+      <h2 id="subtitle-2">Faça uma simulação</h2>
+      <p id="paragraph-2">Quer saber quanto você vai ganhar no mês? Use nossa calculadora:</p>
+      <div class="banner-3">
+        <div id="formulario-calc">
+          <form>
+            <label for="prato">O nome do seu melhor prato</label><br>
+            <input type="text"></input><br>
+            <label for="preco">Quanto você vai cobrar?</label><br>
+            <input type="text"></input><br>
+            <label for="unidades">Quantas unidades do seu prato você espera vender por dia?</label><br>
+            <input type="text"></input>
+          </form>
+          <h3>Seu total no mês:</h3>
+          <p>Vendendo o prato "nome", você fará por mês</p> <!--texto terá que ser inserido dinamicamente-->
+          <p>R$ 100,00</p> <!--texto terá que ser inserido dinamicamente-->
+          <p>*o valor é estimado com base no seu fornecimento em 5 dias da semana num mês de 30 dias com a taxa de 7% por cada pedido.</p>
+        </div>
+        <div>
+          <img id="calc-img" src="./Assets/ilustras/calculadora.png" alt="calculadora">
+        </div>
+      </div>
+      <div class="banner-4">
+        <h2 id="subtitle-3">Cadastre-se</h2>
+        <p id="paragraph-3">Receba no seu e-mail nossas atualizações, acompanhe as novidades e receba em primeira mão a data de lançamento</p>
+        
+        <form class="formmulario" action="http://localhost:5500/v1/leads" method="POST">
+          <input type="text" name="nome" id="cad-news" placeholder="insira seu nome">
+          <input type="text" name="email" id="cad-news" placeholder="insira seu email">
+          <fieldset class ="fieldset">
+              
+            <legend>interesse</legend>
+
+            <label>ser os primeiros a testar o app</label>
+            <input type="radio" name="campanha_id" value='1' id="campanhas"/>
+        
+        </fieldset>
+          <button type="submit" id="btn-cadastrar-2">Cadastrar</button>
+        </form>
+      </div>
+  </main>
+  <footer class="footer">
+    <div>
+      <div>
+        <img id="logo-footer" src="./Assets/logos/Logo-Mr-Chef-branco.png" alt="logo mister chef" width="100px;">
+      </div>
+      <div>
+
+      </div>
+      <p>&copy 2021 Mr. Chef - todos os direitos reservados</p>
+    </div>
+
+  </footer>
+  
+</body>
+</html>
