@@ -6,5 +6,8 @@ Contudo isso, cada um dos membros que permaneceu, mostrou boa vontade e disposi√
 
 ***A seguir apresentamos o cronograma das tarefas (tasks) executadas ao longo do projeto:***
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/83875408/146204191-2c55d66b-751b-4c75-9883-2af5167af769.PNG" width="600px" />
+</div>
 
 
